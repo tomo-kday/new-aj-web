@@ -1,12 +1,47 @@
+import { cn } from "@/lib/utils";
+import { Button, buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
+import { Typography } from "@/components/ui/typography";
 
 export default function Home() {
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-between p-24">
+			<Button>Primary</Button>
+			<Button variant={"secondary"}>Secondary</Button>
+			<Button variant={"cta"}>Cta</Button>
+			<Button disabled>Disabled</Button>
+			<Link
+				href="https://activityjapan.com/404"
+				className={cn(buttonVariants({ variant: "cta" }))}
+			>
+				Link
+			</Link>
+			<a href="https://activityjapan.com/404">Link</a>
+
+			<h1>Typography</h1>
+			<Typography variant={"h1"}>H1</Typography>
+			<Typography as="h1">
+				<Typography variant={"h4"} as="span">
+					<Typography variant={"h3"} as="strong">
+						沖縄
+					</Typography>
+					のアクティビティ・遊び・体験・レジャー
+				</Typography>
+			</Typography>
+			<Typography variant={"h2"}>H2</Typography>
+			<Typography variant={"h3"}>H3</Typography>
+			<Typography variant={"h4"}>H4</Typography>
+			<Typography variant={"p"}>Paragraph</Typography>
+			<Typography variant={"sm"}>Small</Typography>
+			<Typography variant={"xs"}>Xtra small</Typography>
+
 			<div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
 				<p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
 					Get started by editing&nbsp;
-					<code className="font-mono font-bold">src/app/page.tsx</code>
+					<code className="font-mono font-bold text-orange">
+						src/app/page.tsx
+					</code>
 				</p>
 				<div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
 					<a
@@ -46,7 +81,7 @@ export default function Home() {
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<h2 className={`mb-3 text-2xl font-semibold`}>
+					<h2 className="mb-3 text-2xl font-semibold">
 						Docs{" "}
 						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
 							-&gt;
