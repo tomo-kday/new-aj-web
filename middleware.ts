@@ -1,0 +1,26 @@
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+import { getSubdomainFromUrl } from "./utils/get-subdomain-url";
+
+function getLocale(request: NextRequest): string | undefined {
+	// Negotiator expects plain object so we need to transform headers
+	const negotiatorHeaders: Record<string, string> = {};
+	request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
+
+	const lang_locale = getSubdomainFromUrl(negotiatorHeaders.host);
+	return lang_locale;
+}
+
+export function middleware(request: NextRequest) {
+	const host = request.nextUrl.host;
+	const locale = getLocale(request);
+	return NextResponse.rewrite(new URL(`/${locale}.${host}`, request.url));
+}
+
+export const config = {
+	// Matcher ignoring `/_next/` and `/api/`
+	matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+	// Optional: only run on root (/) URL
+	// '/'
+};
