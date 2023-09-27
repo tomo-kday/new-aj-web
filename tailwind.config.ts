@@ -1,3 +1,4 @@
+const { fontFamily } = require("tailwindcss/defaultTheme");
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -34,6 +35,9 @@ const config: Config = {
 			},
 			fontSize: {
 				tiny: ["10px", "15px"],
+			},
+			fontFamily: {
+				helvetica: ["var(--font-helvetica)", ...fontFamily.sans],
 			},
 		},
 	},
