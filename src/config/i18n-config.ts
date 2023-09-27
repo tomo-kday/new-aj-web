@@ -1,6 +1,6 @@
 export const i18n = {
 	defaultLocale: "jp",
-	locales: ["jp", "en", "ch"],
+	locales: ["jp", "en", "zh-cht", "zh-chs", "ko", "th"],
 	domains: [
 		{
 			domain: "localhost",
@@ -13,10 +13,23 @@ export const i18n = {
 			http: true,
 		},
 		{
-			domain: "ch.localhost",
-			defaultLocale: "ch",
-			// an optional http field can also be used to test
-			// locale domains locally with http instead of https
+			domain: "zh-cht.localhost",
+			defaultLocale: "zh-cht",
+			http: true,
+		},
+		{
+			domain: "zh-chs.localhost",
+			defaultLocale: "zh-chs",
+			http: true,
+		},
+		{
+			domain: "ko.localhost",
+			defaultLocale: "ko",
+			http: true,
+		},
+		{
+			domain: "th.localhost",
+			defaultLocale: "th",
 			http: true,
 		},
 	],
